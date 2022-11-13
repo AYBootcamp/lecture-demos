@@ -1,35 +1,40 @@
 import React from 'react'
-import styled from 'styled-components'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-import CC from './components/ClassComponent'
-import FC from './components/FunctionalComponent'
+import Nav, { PATH } from './components/Nav'
+import CustomHookPage from './routes/CustomhookPage'
+import LandingPage from './routes/LandingPage'
+import LifecycleDemoPage from './routes/LifecycleDemoPage'
+import StateDemoPage from './routes/StateDemoPage'
 
-const CenterFlex = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
+const router = createBrowserRouter([
+    {
+        path: PATH.root,
+        element: <Nav />,
+        children: [
+            {
+                path: PATH.root,
+                element: <LandingPage />,
+            },
+            {
+                path: PATH.stateDemoPage,
+                element: <StateDemoPage />,
+            },
+            {
+                path: PATH.lifecycleDemoPage,
+                element: <LifecycleDemoPage />,
+            },
+            {
+                path: PATH.customHookPage,
+                element: <CustomHookPage />,
+            },
+        ],
+        errorElement: <div>404</div>,
+    },
+])
 
-    height: 100vh;
-    & > :last-child {
-        border-left: 1px solid black;
-        margin-left: 20px;
-        padding-left: 20px;
-    }
-`
-
-function App() {
-    return (
-        <CenterFlex>
-            <div>
-                <h1> Functional Component </h1>
-                <FC />
-            </div>
-            <div>
-                <h1> Class Component </h1>
-                <CC />
-            </div>
-        </CenterFlex>
-    )
+const App = () => {
+    return <RouterProvider router={router} />
 }
 
 export default App
