@@ -34,6 +34,7 @@ const PageWrapper = styled.div`
 
 export const PATH = {
     root: '/',
+    jsxDemoPage: 'jsxDemoPage',
     stateDemoPage: 'stateDemoPage',
     lifecycleDemoPage: 'lifecycleDemoPage',
     customHookPage: 'customHookPage',
@@ -43,6 +44,10 @@ const links = [
     {
         to: PATH.root,
         title: 'Landing Page',
+    },
+    {
+        to: PATH.jsxDemoPage,
+        title: 'JSX demo Page',
     },
     {
         to: PATH.stateDemoPage,
