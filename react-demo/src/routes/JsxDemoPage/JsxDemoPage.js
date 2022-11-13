@@ -5,7 +5,7 @@ import './demo2.css'
 import React from 'react'
 import styled from 'styled-components'
 
-import DemoContainer from '../sharedComponents/DemoContainer'
+import DemoContainer from '../../sharedComponents/DemoContainer'
 
 // constant variable used in CSS-in-JS
 const SPACING = 20
@@ -23,6 +23,7 @@ const StyledUl = styled.ul`
 
 // JSX & looped rendering
 const MyListComponent = (props) => {
+    // eslint-disable-next-line react/prop-types
     const { startingCount = 1, className } = props
 
     const renderListItem = () => {
