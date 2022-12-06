@@ -20,7 +20,7 @@ const useTimer = (countDownTimer = 2000) => {
         return () => clearInterval(timerInterval)
     }, [timer, isActive])
 
-    return [timer, toggle]
+    return [timer, isActive, toggle]
 }
 
 export default useTimer

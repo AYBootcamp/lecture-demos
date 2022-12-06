@@ -26,17 +26,17 @@ const WithoutHook = () => {
     return (
         <DemoContainer>
             <span>timer: {timer} ms</span>
-            <button onClick={toggle}>Start</button>
+            <button onClick={toggle}>{isActive ? 'Stop' : 'Start'}</button>
         </DemoContainer>
     )
 }
 
 const WithHook = () => {
-    const [timer, toggle] = useTimer(2000)
+    const [timer, isActive, toggle] = useTimer(2000)
     return (
         <DemoContainer>
             <span>timer: {timer} ms</span>
-            <button onClick={toggle}>Start</button>
+            <button onClick={toggle}>{isActive ? 'Stop' : 'Start'}</button>
         </DemoContainer>
     )
 }
