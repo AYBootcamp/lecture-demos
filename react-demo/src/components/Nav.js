@@ -60,6 +60,9 @@ const links = [
     { to: PATH.customHookPage, title: 'Custom Hook Page' },
 ]
 
+/**
+ * Top navigation component. Directs to specific demo page when clicking on link buttons
+ */
 const Nav = () => {
     return (
         <div>

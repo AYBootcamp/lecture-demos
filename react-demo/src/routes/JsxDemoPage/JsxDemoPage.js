@@ -62,8 +62,7 @@ const JsxDemoPage = () => {
                 }}
                 className="title"
             >
-                {' '}
-                click me!{' '}
+                click me!
             </button>
             <StyledMyComponent startingCount={5} />
             <MyListComponent />
