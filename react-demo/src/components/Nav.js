@@ -83,7 +83,7 @@ const Nav = () => {
                         </li>
                     ))}
                     <li>
-                        <Link to={'error'}>VOID</Link>
+                        <Link to={'error'}>Error Page</Link>
                     </li>
                 </LinkWrapper>
             </NavContainer>
