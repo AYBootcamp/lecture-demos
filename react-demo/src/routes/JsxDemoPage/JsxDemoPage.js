@@ -29,7 +29,7 @@ const MyListComponent = (props) => {
     const renderListItem = () => {
         const listItems = []
         for (let i = 0; i < 10; i++) {
-            listItems.push(<li>item {startingCount + i}</li>)
+            listItems.push(<li key={i}>item {startingCount + i}</li>)
         }
         return listItems
     }
