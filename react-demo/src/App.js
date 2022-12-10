@@ -2,12 +2,20 @@ import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Nav, { PATH } from './components/Nav'
-import CustomHookPage from './routes/CustomhookPage'
-import JsxDemoPage from './routes/JsxDemoPage'
-import LandingPage from './routes/LandingPage'
-import LifecycleDemoPage from './routes/LifecycleDemoPage'
-import StateDemoPage from './routes/StateDemoPage'
+import {
+    CustomHookPage,
+    ErrorPage,
+    JsxDemoPage,
+    LandingPage,
+    LifecycleDemoPage,
+    ProjectSubmissions,
+    ReactRouterDemoPage,
+    StateDemoPage,
+    StudentProfile,
+    Students,
+} from './routes'
 
+// RouterDemo #1: Create router object
 const router = createBrowserRouter([
     {
         path: PATH.root,
@@ -33,11 +41,32 @@ const router = createBrowserRouter([
                 path: PATH.customHookPage,
                 element: <CustomHookPage />,
             },
+            {
+                path: PATH.reactRouterPage,
+                element: <ReactRouterDemoPage />,
+                // RouterDemo #6-a: Route Nesting
+                children: [
+                    {
+                        path: 'students',
+                        element: <Students />,
+                    },
+                    {
+                        path: 'students/:studentId',
+                        element: <StudentProfile />,
+                    },
+                    {
+                        path: 'project_submission',
+                        element: <ProjectSubmissions />,
+                    },
+                ],
+            },
         ],
-        errorElement: <div>404</div>,
+        // RouterDemo #5: Error page
+        errorElement: <ErrorPage />,
     },
 ])
 
+// RouterDemo #2: Render RouterProvider
 const App = () => {
     return <RouterProvider router={router} />
 }

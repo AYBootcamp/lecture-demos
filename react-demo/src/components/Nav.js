@@ -32,12 +32,19 @@ const PageWrapper = styled.div`
     align-items: center;
 `
 
+const LinkWrapper = styled.ul`
+    & > li:last-child {
+        margin-left: auto;
+    }
+`
+
 export const PATH = {
     root: '/',
     jsxDemoPage: 'jsxDemoPage',
     stateDemoPage: 'stateDemoPage',
     lifecycleDemoPage: 'lifecycleDemoPage',
     customHookPage: 'customHookPage',
+    reactRouterPage: 'reactRouterPage',
 }
 
 const links = [
@@ -58,6 +65,7 @@ const links = [
         title: 'Lifecycle Demo Page',
     },
     { to: PATH.customHookPage, title: 'Custom Hook Page' },
+    { to: PATH.reactRouterPage, title: 'React Router Page' },
 ]
 
 /**
@@ -67,13 +75,17 @@ const Nav = () => {
     return (
         <div>
             <NavContainer>
-                <ul>
+                <LinkWrapper>
+                    {/* RouterDemo #3: Create Links for navigation */}
                     {links.map((link) => (
                         <li key={link.to}>
                             <Link to={link.to}>{link.title}</Link>
                         </li>
                     ))}
-                </ul>
+                    <li>
+                        <Link to={'error'}>VOID</Link>
+                    </li>
+                </LinkWrapper>
             </NavContainer>
             <PageWrapper>
                 <Outlet />
