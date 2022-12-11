@@ -49,10 +49,12 @@ const router = createBrowserRouter([
                     {
                         path: 'students',
                         element: <Students />,
-                    },
-                    {
-                        path: 'students/:studentId',
-                        element: <StudentProfile />,
+                        children: [
+                            {
+                                path: ':studentId',
+                                element: <StudentProfile />,
+                            },
+                        ],
                     },
                     {
                         path: 'project_submission',

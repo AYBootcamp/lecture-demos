@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
 
-// RouterDemo #4: Land on page
+// RouterDemo #4: Land on page, element prop
 const ReactRouterDemoPage = () => {
     return (
         <div>

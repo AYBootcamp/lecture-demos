@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { students } from './mockData'
@@ -18,6 +18,7 @@ const Students = () => {
                     <button>{student.name}</button>
                 </StyledProfileLink>
             ))}
+            <Outlet />
         </div>
     )
 }

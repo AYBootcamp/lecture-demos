@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { students } from './mockData'
@@ -10,15 +10,16 @@ const StyledLabel = styled.label`
 
 const StudentProfile = () => {
     let location = useLocation()
-    console.info({ location })
+    let params = useParams()
+    console.info({ location, params })
 
-    // pathname is a string "/reactRouterPage/students/1002", we can use split to get the id
-    const studentId = location.pathname.split('/').at(-1)
+    const { studentId } = params
 
     /* Access profile using the id from mock data */
     const studentProfile = students[studentId]
     return (
         <div>
+            <hr />
             <h3>Student Profile - {studentId}</h3>
             <StyledLabel>Name: </StyledLabel>
             <p>{studentProfile.name}</p>
