@@ -38,6 +38,7 @@ const LinkWrapper = styled.ul`
     }
 `
 
+// Reusable constants
 export const PATH = {
     root: '/',
     jsxDemoPage: 'jsxDemoPage',
