@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import CC from '../components/ClassComponent'
-import FC from '../components/FunctionalComponent'
+import ClassComponent from '../components/ClassComponent'
+import ControlledComponent from '../components/ControlledComponent'
+import FunctionalComponent from '../components/FunctionalComponent'
+import UncontrolledComponent from '../components/UncontrolledComponent'
 
 const CenterFlex = styled.div`
     display: flex;
@@ -21,13 +23,21 @@ const StateDemoPage = () => {
             <CenterFlex>
                 <div>
                     <h1>Functional Component</h1>
-                    <FC />
+                    <FunctionalComponent />
                 </div>
                 <div>
                     <h1>Class Component</h1>
-                    <CC />
+                    <ClassComponent />
                 </div>
             </CenterFlex>
+            <div>
+                <h1>Controlled Component</h1>
+                <ControlledComponent />
+            </div>
+            <div>
+                <h1>Uncontrolled Component</h1>
+                <UncontrolledComponent />
+            </div>
         </div>
     )
 }
