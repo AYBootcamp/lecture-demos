@@ -14,10 +14,12 @@ const SPACING = 20
 const StyledUl = styled.ul`
     list-style: none;
     margin: 0;
-    margin: ${SPACING}px 0;
+    /* margin: ${SPACING}px 0; */
+    margin: ${(props) => props.spacing}px 0;
     display: flex;
     & > li {
-        padding-right: ${SPACING}px;
+        /* padding-right: ${SPACING}}px; */
+        padding-right: ${(props) => props.spacing}px;
     }
 `
 
@@ -36,7 +38,7 @@ const MyListComponent = (props) => {
 
     return (
         // use classname prop here to style
-        <StyledUl className={className}>
+        <StyledUl className={className} spacing={5}>
             {renderListItem()}
             {/* <li>item {startingCount}</li>
             <li>item {startingCount + 1}</li>

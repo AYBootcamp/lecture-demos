@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import ClassComponent from '../components/ClassComponent'
 import ControlledComponent from '../components/ControlledComponent'
 import FunctionalComponent from '../components/FunctionalComponent'
+import JavaScriptVariable from '../components/JavaScriptVariable'
 import UncontrolledComponent from '../components/UncontrolledComponent'
 
 const CenterFlex = styled.div`
@@ -37,6 +38,10 @@ const StateDemoPage = () => {
             <div>
                 <h1>Uncontrolled Component</h1>
                 <UncontrolledComponent />
+            </div>
+            <div>
+                <h1>JavaScript Variable Used as state</h1>
+                <JavaScriptVariable />
             </div>
         </div>
     )
