@@ -4,26 +4,38 @@ import React from 'react'
 import DemoContainer from '../sharedComponents/DemoContainer'
 
 class LifecycleDemo extends React.Component {
+    static propTypes = {
+        initialCount: PropTypes.number,
+    }
+
     constructor(props) {
         console.log('constructor', { props })
         super(props)
         this.state = {
-            count: 0,
+            count: props.initialCount,
             showMessage: false,
+            loading: true,
         }
         console.log('end of constructor', { state: this.state })
     }
-    static getDerivedStateFromProps(props, state) {
-        console.log('getDerivedStateFromProps initial values: ', {
-            props,
-            state,
-        })
-        return {
-            ...state,
-            count: state.count === 0 ? props.initialCount : state.count,
-        }
-    }
+
+    // Rarely used lifecycle method,
+    // read more: https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops
+    // static getDerivedStateFromProps(props, state) {
+    //     console.log('getDerivedStateFromProps initial values: ', {
+    //         props,
+    //         state,
+    //     })
+    //     return {
+    //         ...state,
+    //         count: state.count === 0 ? props.initialCount : state.count,
+    //     }
+    // }
     componentDidMount() {
+        // Simulate async data loading
+        setTimeout(() => {
+            this.setState({ loading: false })
+        }, 3000) // 3 seconds delay
         console.log('componentDidMount')
     }
 
@@ -55,6 +67,10 @@ class LifecycleDemo extends React.Component {
 
     render() {
         console.log('render', { state: this.state })
+        if (this.state.loading) {
+            return <div>loading...</div>
+        }
+
         return (
             <DemoContainer>
                 <h2>Lifecycle Class Component</h2>
@@ -72,10 +88,6 @@ class LifecycleDemo extends React.Component {
             </DemoContainer>
         )
     }
-}
-
-LifecycleDemo.propTypes = {
-    initialCount: PropTypes.number,
 }
 
 export default LifecycleDemo
