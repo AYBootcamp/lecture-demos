@@ -12,7 +12,7 @@ const LifecycleDemoPage = () => {
                 return <UseEffectDemo />
             }
             case 'class': {
-                return <LifecycleDemo />
+                return <LifecycleDemo initialCount={5} />
             }
             default:
                 return <div>No component selected</div>
