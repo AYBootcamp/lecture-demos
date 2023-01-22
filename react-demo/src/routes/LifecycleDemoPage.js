@@ -9,7 +9,7 @@ const LifecycleDemoPage = () => {
     const renderComponent = () => {
         switch (componentToRender) {
             case 'function': {
-                return <UseEffectDemo />
+                return <UseEffectDemo initialCount={5} />
             }
             case 'class': {
                 return <LifecycleDemo initialCount={5} />
