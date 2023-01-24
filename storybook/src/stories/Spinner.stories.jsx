@@ -1,41 +1,29 @@
 import React from "react";
 
-import Button from "../components/Button";
+import Spinner from "../components/Spinner";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "components/Button",
-  component: Button,
+  title: "components/Spinner",
+  component: Spinner,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {
-    backgroundColor: { control: "color" },
-  },
+  argTypes: {},
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <Button {...args} />;
+const Template = (args) => <Spinner {...args} />;
 
 export const Small = Template.bind({});
 Small.args = {
   size: "small",
-  label: "Button",
 };
 
 export const Medium = Template.bind({});
 Medium.args = {
   size: "medium",
-  label: "Button",
 };
 
 export const Large = Template.bind({});
 Large.args = {
   size: "large",
-  label: "Button",
-};
-
-export const Disabled = Template.bind({});
-Disabled.args = {
-  disabled: true,
-  size: "medium",
-  label: "Disabled Button",
 };
