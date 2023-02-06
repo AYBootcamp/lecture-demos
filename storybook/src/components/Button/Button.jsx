@@ -1,55 +1,55 @@
-import "./button.css";
-
 import PropTypes from "prop-types";
 import React from "react";
+import styled from "styled-components";
 
-/**
- * Primary UI component for user interaction
- */
-const Button = ({ primary, backgroundColor, size, label, ...props }) => {
-  const mode = primary
-    ? "storybook-button--primary"
-    : "storybook-button--secondary";
+// constant sizes
+const SMALL = {
+  fontSize: "12px",
+  padding: "10px 16px",
+};
+const MEDIUM = {
+  fontSize: "14px",
+  padding: "11px 20px",
+};
+const LARGE = {
+  fontSize: "16px",
+  padding: "12px 24px",
+};
+
+const sizeMap = { small: SMALL, medium: MEDIUM, large: LARGE };
+
+const StyledButton = styled.button`
+  background-color: ${(props) => props.backgroundColor};
+  border-radius: 3px;
+  border: none;
+  font-family: "Monospace";
+  :hover {
+    border: 1px solid lightslategray;
+    cursor: pointer;
+  }
+  :disabled {
+    cursor: not-allowed;
+  }
+`;
+
+const Button = ({ backgroundColor, size, label, ...props }) => {
   return (
-    <button
-      type="button"
-      className={["storybook-button", `storybook-button--${size}`, mode].join(
-        " "
-      )}
-      style={backgroundColor && { backgroundColor }}
-      {...props}
-    >
+    <StyledButton type="button" style={size && sizeMap[size]} {...props}>
       {label}
-    </button>
+    </StyledButton>
   );
 };
 
 Button.propTypes = {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary: PropTypes.bool,
-  /**
-   * What background color to use
-   */
   backgroundColor: PropTypes.string,
-  /**
-   * How large should the button be?
-   */
   size: PropTypes.oneOf(["small", "medium", "large"]),
-  /**
-   * Button contents
-   */
   label: PropTypes.string.isRequired,
-  /**
-   * Optional click handler
-   */
+  disabled: PropTypes.bool,
   onClick: PropTypes.func,
 };
 
 Button.defaultProps = {
   backgroundColor: null,
-  primary: false,
   size: "medium",
   onClick: undefined,
 };
