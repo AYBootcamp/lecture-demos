@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 const FC = () => {
     const [count, setCount] = useState(0)
+    const [isLoading, setIsLoading] = useState(true)
     return (
         <div>
             Functional Component
