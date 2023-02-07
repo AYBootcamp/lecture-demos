@@ -46,6 +46,7 @@ export const PATH = {
     lifecycleDemoPage: 'lifecycleDemoPage',
     customHookPage: 'customHookPage',
     reactRouterPage: 'reactRouterPage',
+    reduxDemoPage: 'reduxDemoPage',
 }
 
 const links = [
@@ -67,6 +68,7 @@ const links = [
     },
     { to: PATH.customHookPage, title: 'Custom Hook Page' },
     { to: PATH.reactRouterPage, title: 'React Router Page' },
+    { to: PATH.reduxDemoPage, title: 'Redux Demo Page' },
 ]
 
 /**

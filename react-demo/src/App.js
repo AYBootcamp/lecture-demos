@@ -10,6 +10,7 @@ import {
     LifecycleDemoPage,
     ProjectSubmissions,
     ReactRouterDemoPage,
+    ReduxDemoPage,
     StateDemoPage,
     StudentProfile,
     Students,
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
                         element: <ProjectSubmissions />,
                     },
                 ],
+            },
+            {
+                path: PATH.reduxDemoPage,
+                element: <ReduxDemoPage />,
             },
         ],
         // RouterDemo #5: Error page

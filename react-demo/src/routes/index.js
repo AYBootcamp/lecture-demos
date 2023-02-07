@@ -9,4 +9,5 @@ export {
     StudentProfile,
     Students,
 } from './ReactRouterDemoPage'
+export { default as ReduxDemoPage } from './ReduxDemoPage'
 export { default as StateDemoPage } from './StateDemoPage'
