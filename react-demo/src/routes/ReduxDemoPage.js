@@ -12,6 +12,7 @@ const ReduxDemoPage = () => {
             <input
                 id="showExample"
                 type="checkbox"
+                checked={showPropsDrillingExample}
                 onChange={(e) => {
                     setShowPropsDrillingExample(e.target.checked)
                 }}

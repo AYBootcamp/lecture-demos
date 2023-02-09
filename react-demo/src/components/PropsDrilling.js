@@ -50,12 +50,13 @@ const AdmissionControl = ({ studentIds, setStudentIds }) => {
             <h3>Amission</h3>
             <select
                 onChange={(e) => {
-                    setSelectedId(e.target.value)
+                    console.log(e.target.value)
+                    setSelectedId(+e.target.value)
                 }}
             >
                 <option value={null}></option>
                 {studentIds.map((id) => (
-                    <option style={{}} key={id} value={id}>
+                    <option style={{}} key={id} value={+id}>
                         Student #{id}
                     </option>
                 ))}
@@ -65,10 +66,7 @@ const AdmissionControl = ({ studentIds, setStudentIds }) => {
                 onClick={() => {
                     if (selectedId) {
                         const newList = [...studentIds]
-                        newList.splice(
-                            newList.find((id) => id === selectedId),
-                            1
-                        )
+                        newList.splice(newList.indexOf(selectedId), 1)
                         setStudentIds(newList)
                         setSelectedId(null)
                     }
