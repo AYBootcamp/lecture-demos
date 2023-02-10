@@ -22,33 +22,29 @@ const ReactContextDemo = () => {
 
 // Component 1: Display a list of students
 const StudentList = () => {
-    const a = useContext(StudentContext)
-    console.log({ a })
+    // useContext hook to pull the value instead of consumer
+    const value = useContext(StudentContext)
+    const { studentIds, selectedId } = value
 
     return (
-        // Consumer
-        <StudentContext.Consumer>
-            {({ studentIds, selectedId }) => (
-                <>
-                    <h3>Student List:</h3>
-                    <ul style={{ display: 'flex', flexWrap: 'wrap' }}>
-                        {studentIds.map((id) => (
-                            <li
-                                style={{
-                                    listStyle: 'none',
-                                    margin: '0 2px',
-                                    flexBasis: '20%',
-                                    fontWeight: selectedId === id ? 'bold' : '',
-                                }}
-                                key={id}
-                            >
-                                Student #{id}
-                            </li>
-                        ))}
-                    </ul>
-                </>
-            )}
-        </StudentContext.Consumer>
+        <>
+            <h3>Student List:</h3>
+            <ul style={{ display: 'flex', flexWrap: 'wrap' }}>
+                {studentIds.map((id) => (
+                    <li
+                        style={{
+                            listStyle: 'none',
+                            margin: '0 2px',
+                            flexBasis: '20%',
+                            fontWeight: selectedId === id ? 'bold' : '',
+                        }}
+                        key={id}
+                    >
+                        Student #{id}
+                    </li>
+                ))}
+            </ul>
+        </>
     )
 }
 StudentList.propTypes = {}
