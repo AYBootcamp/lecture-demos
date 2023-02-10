@@ -3,13 +3,16 @@ import React, { useState } from 'react'
 
 const PropsDrilling = () => {
     const [studentIds, setStudentIds] = useState(Array.from(Array(20).keys())) // [1,2,3,....,20]
+    const [selectedId, setSelectedId] = useState(null)
     return (
         <div>
             <h3>Props-Drilling Example</h3>
             {/* Both components needs studentIds, so we had to put students at parent level */}
-            <StudentList studentIds={studentIds} />
+            <StudentList studentIds={studentIds} selectedId={selectedId} />
             <AuthorizedControls
                 studentIds={studentIds}
+                selectedId={selectedId}
+                setSelectedId={setSelectedId}
                 setStudentIds={setStudentIds}
             />
         </div>
@@ -17,7 +20,7 @@ const PropsDrilling = () => {
 }
 
 // Component 1: Display a list of students
-const StudentList = ({ studentIds }) => {
+const StudentList = ({ studentIds, selectedId }) => {
     return (
         <>
             <h3>Student List:</h3>
@@ -28,6 +31,7 @@ const StudentList = ({ studentIds }) => {
                             listStyle: 'none',
                             margin: '0 2px',
                             flexBasis: '20%',
+                            fontWeight: selectedId === id ? 'bold' : '',
                         }}
                         key={id}
                     >
@@ -39,18 +43,22 @@ const StudentList = ({ studentIds }) => {
     )
 }
 StudentList.propTypes = {
+    selectedId: PropTypes.string,
     studentIds: PropTypes.arrayOf(PropTypes.number),
 }
 
 // Component 2: Add or Removes students
-const AdmissionControl = ({ studentIds, setStudentIds }) => {
-    const [selectedId, setSelectedId] = useState(null)
+const AdmissionControl = ({
+    studentIds,
+    setStudentIds,
+    selectedId,
+    setSelectedId,
+}) => {
     return (
         <>
             <h3>Amission</h3>
             <select
                 onChange={(e) => {
-                    console.log(e.target.value)
                     setSelectedId(+e.target.value)
                 }}
             >
@@ -60,7 +68,6 @@ const AdmissionControl = ({ studentIds, setStudentIds }) => {
                         Student #{id}
                     </option>
                 ))}
-                <option>1</option>
             </select>
             <button
                 onClick={() => {
@@ -79,17 +86,26 @@ const AdmissionControl = ({ studentIds, setStudentIds }) => {
 }
 AdmissionControl.propTypes = {
     studentIds: PropTypes.arrayOf(PropTypes.number),
+    selectedId: PropTypes.number,
     setStudentIds: PropTypes.func,
+    setSelectedId: PropTypes.func,
 }
 
 // List of controls that only used by admins
-const AuthorizedControls = ({ studentIds, setStudentIds }) => {
+const AuthorizedControls = ({
+    studentIds,
+    setStudentIds,
+    selectedId,
+    setSelectedId,
+}) => {
     return (
         <div>
             {/* ... imagine some other controls here too... */}
             <AdmissionControl
                 // props-drilling!
                 studentIds={studentIds}
+                selectedId={selectedId}
+                setSelectedId={setSelectedId}
                 setStudentIds={setStudentIds}
             />
             {/* ... imagine some other controls here too... */}
@@ -99,7 +115,9 @@ const AuthorizedControls = ({ studentIds, setStudentIds }) => {
 
 AuthorizedControls.propTypes = {
     studentIds: PropTypes.arrayOf(PropTypes.number),
+    selectedId: PropTypes.number,
     setStudentIds: PropTypes.func,
+    setSelectedId: PropTypes.func,
 }
 
 export default PropsDrilling
