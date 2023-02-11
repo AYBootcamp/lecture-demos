@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 import fakeFetch from '../../helpers/fakeFetch'
 
+// Async thunk
 export const fetchStudentIds = createAsyncThunk(
     'students/fetchStudentIds',
     async () => {
@@ -26,14 +27,15 @@ export const studentSlice = createSlice({
         selectedStudentId: null,
     },
     reducers: {
-        addStudent: (state, id) => {
-            state.studentIds.push(id)
+        addStudent: (state, action) => {
+            state.studentIds.push(action.payload)
         },
-        removeStudent: (state, id) => {
-            state.studentIds.splice(state.studentIds.indexOf(id), 1)
+        removeStudent: (state, action) => {
+            state.studentIds.splice(state.studentIds.indexOf(action.payload), 1)
+            state.selectedStudentId = null
         },
-        selectStudent: (state, id) => {
-            state.selectedStudentId = id
+        selectStudent: (state, action) => {
+            state.selectedStudentId = action.payload
         },
     },
     extraReducers: (builder) => {

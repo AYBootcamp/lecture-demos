@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import Spinner from '../../components/Spinner'
 import { decrement, increment } from './counterSlice'
-import { fetchStudentIds } from './studentSlice'
+import { fetchStudentIds, removeStudent, selectStudent } from './studentSlice'
 
 const ReduxDemo = () => {
     const count = useSelector((state) => state.counter.value)
@@ -65,13 +65,17 @@ StudentList.propTypes = {}
 
 // Component 2: Add or Removes students
 const AdmissionControl = () => {
-    const studentIds = useSelector((state) => state.students.studentIds)
+    const { studentIds, selectedStudentId } = useSelector(
+        (state) => state.students
+    )
+    const dispatch = useDispatch()
+
     return (
         <>
             <h3>Amission</h3>
             <select
                 onChange={(e) => {
-                    setSelectedId(+e.target.value)
+                    dispatch(selectStudent(+e.target.value))
                 }}
             >
                 <option value={null}></option>
@@ -83,11 +87,8 @@ const AdmissionControl = () => {
             </select>
             <button
                 onClick={() => {
-                    if (selectedId) {
-                        const newList = [...studentIds]
-                        newList.splice(newList.indexOf(selectedId), 1)
-                        setStudentIds(newList)
-                        setSelectedId(null)
+                    if (selectedStudentId) {
+                        dispatch(removeStudent(selectedStudentId))
                     }
                 }}
             >
