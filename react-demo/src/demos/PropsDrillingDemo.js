@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 
-const PropsDrilling = () => {
+const PropsDrillingDemo = () => {
     const [studentIds, setStudentIds] = useState(Array.from(Array(20).keys())) // [1,2,3,....,20]
     const [selectedId, setSelectedId] = useState(null)
     return (
@@ -120,4 +120,4 @@ AuthorizedControls.propTypes = {
     setSelectedId: PropTypes.func,
 }
 
-export default PropsDrilling
+export default PropsDrillingDemo

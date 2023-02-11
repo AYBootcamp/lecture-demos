@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-import LifecycleDemo from '../components/LifecycleDemo'
-import UseEffectDemo from '../components/UseEffectDemo'
+import LifecycleDemo from '../demos/LifecycleDemo'
+import UseEffectDemo from '../demos/UseEffectDemo'
 
 const LifecycleDemoPage = () => {
     const [componentToRender, setComponentToRender] = useState('')
