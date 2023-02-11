@@ -1,10 +1,12 @@
 import React from 'react'
 
+import DemoContainer from '../sharedComponents/DemoContainer'
+
 const LandingPage = () => {
     return (
-        <div>
+        <DemoContainer>
             <h1>Landing Page</h1>
-        </div>
+        </DemoContainer>
     )
 }
 

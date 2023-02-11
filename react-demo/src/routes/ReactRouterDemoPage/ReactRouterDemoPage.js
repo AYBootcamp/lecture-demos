@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
 
+import DemoContainer from '../../sharedComponents/DemoContainer'
 // RouterDemo #4: Land on page, element prop
 const ReactRouterDemoPage = () => {
     return (
-        <div>
+        <DemoContainer>
             <h1>ReactRouter Demo Page</h1>
             <p> More navigation under the ReactRouterDemoPage </p>
             {/* RouterDemo #6-b: Route Nesting - sub routes navigation  */}
@@ -25,7 +26,7 @@ const ReactRouterDemoPage = () => {
             <hr />
             <Outlet />
             <hr />
-        </div>
+        </DemoContainer>
     )
 }
 export default ReactRouterDemoPage

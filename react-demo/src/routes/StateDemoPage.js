@@ -6,6 +6,7 @@ import ControlledComponent from '../components/ControlledComponent'
 import FunctionalComponent from '../components/FunctionalComponent'
 import JavaScriptVariable from '../components/JavaScriptVariable'
 import UncontrolledComponent from '../components/UncontrolledComponent'
+import DemoContainer from '../sharedComponents/DemoContainer'
 
 const CenterFlex = styled.div`
     display: flex;
@@ -19,7 +20,7 @@ const CenterFlex = styled.div`
 
 const StateDemoPage = () => {
     return (
-        <div>
+        <DemoContainer>
             <h1>State Demo Page</h1>
             <CenterFlex>
                 <div>
@@ -43,7 +44,7 @@ const StateDemoPage = () => {
                 <h1>JavaScript Variable Used as state</h1>
                 <JavaScriptVariable />
             </div>
-        </div>
+        </DemoContainer>
     )
 }
 

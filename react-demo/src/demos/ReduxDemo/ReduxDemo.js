@@ -43,21 +43,26 @@ const StudentList = () => {
     return (
         <>
             <h3>Student List:</h3>
-            <ul style={{ display: 'flex', flexWrap: 'wrap' }}>
-                {studentIds.map((id) => (
-                    <li
-                        style={{
-                            listStyle: 'none',
-                            margin: '0 2px',
-                            flexBasis: '20%',
-                            fontWeight: selectedStudentId === id ? 'bold' : '',
-                        }}
-                        key={id}
-                    >
-                        Student #{id}
-                    </li>
-                ))}
-            </ul>
+            {studentIds.length > 0 ? (
+                <ul style={{ display: 'flex', flexWrap: 'wrap' }}>
+                    {studentIds.map((id) => (
+                        <li
+                            style={{
+                                listStyle: 'none',
+                                margin: '0 2px',
+                                flexBasis: '20%',
+                                fontWeight:
+                                    selectedStudentId === id ? 'bold' : '',
+                            }}
+                            key={id}
+                        >
+                            Student #{id}
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <div>No data available</div>
+            )}
         </>
     )
 }

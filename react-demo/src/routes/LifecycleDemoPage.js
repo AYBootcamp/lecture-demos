@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import LifecycleDemo from '../demos/LifecycleDemo'
 import UseEffectDemo from '../demos/UseEffectDemo'
+import DemoContainer from '../sharedComponents/DemoContainer'
 
 const LifecycleDemoPage = () => {
     const [componentToRender, setComponentToRender] = useState('')
@@ -20,7 +21,7 @@ const LifecycleDemoPage = () => {
     }
 
     return (
-        <div>
+        <DemoContainer>
             <h1>Lifecycle Demo Page</h1>
             <div>
                 <select onChange={(e) => setComponentToRender(e.target.value)}>
@@ -35,7 +36,7 @@ const LifecycleDemoPage = () => {
                 <hr />
                 {renderComponent()}
             </div>
-        </div>
+        </DemoContainer>
     )
 }
 

@@ -4,6 +4,7 @@ import HideAndShowCheckbox from '../components/HideAndShowCheckbox'
 import PropsDrilling from '../demos/PropsDrillingDemo'
 import ReactContext from '../demos/ReactContextDemo'
 import ReduxDemo from '../demos/ReduxDemo'
+import DemoContainer from '../sharedComponents/DemoContainer'
 
 const StateManagementDemoPage = () => {
     const [showPropsDrillingExample, setShowPropsDrillingExample] =
@@ -33,7 +34,7 @@ const StateManagementDemoPage = () => {
     ]
 
     return (
-        <div>
+        <DemoContainer>
             <h1>State Management Demo Page</h1>
             {demoControlConfigs.map(({ id, checked, label, onChange }) => (
                 <HideAndShowCheckbox
@@ -47,7 +48,7 @@ const StateManagementDemoPage = () => {
             {showPropsDrillingExample && <PropsDrilling />}
             {showReactContextExample && <ReactContext />}
             {showReduxExample && <ReduxDemo />}
-        </div>
+        </DemoContainer>
     )
 }
 
