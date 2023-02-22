@@ -19,6 +19,7 @@ const LARGE = {
 const sizeMap = { small: SMALL, medium: MEDIUM, large: LARGE };
 
 const StyledButton = styled.button`
+  color: ${(props) => props.color};
   background-color: ${(props) => props.backgroundColor};
   border-radius: 3px;
   border: none;
@@ -29,18 +30,26 @@ const StyledButton = styled.button`
   }
   :disabled {
     cursor: not-allowed;
+    border: none;
   }
 `;
 
-const Button = ({ backgroundColor, size, label, ...props }) => {
+const Button = ({ color, backgroundColor, size, label, ...props }) => {
   return (
-    <StyledButton type="button" style={size && sizeMap[size]} {...props}>
+    <StyledButton
+      type="button"
+      style={size && sizeMap[size]}
+      color={color}
+      backgroundColor={backgroundColor}
+      {...props}
+    >
       {label}
     </StyledButton>
   );
 };
 
 Button.propTypes = {
+  color: PropTypes.string,
   backgroundColor: PropTypes.string,
   size: PropTypes.oneOf(["small", "medium", "large"]),
   label: PropTypes.string.isRequired,

@@ -8,7 +8,14 @@ export default {
   component: Button,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    backgroundColor: { control: "color" },
+    backgroundColor: {
+      defaultValue: "d7d7d7",
+      control: "color",
+    },
+    color: {
+      defaultValue: "#000000",
+      control: "color",
+    },
   },
 };
 
