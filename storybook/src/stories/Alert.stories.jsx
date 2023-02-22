@@ -1,6 +1,7 @@
 import React from "react";
 
 import Alert from "../components/Alert";
+import documentation from "../docs/Alert.md";
 
 export default {
   title: "components/Alert",
@@ -13,6 +14,13 @@ export default {
     message: {
       defaultValue: "Hi, this is an alert message",
       control: "text",
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: documentation,
+      },
     },
   },
 };
