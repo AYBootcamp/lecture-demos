@@ -21,13 +21,13 @@ const Template = (args) => {
 
   return (
     <>
-      <button onClick={() => setIsOpen(true)}>Open Modal</button>
+      <button onClick={() => setIsOpen(true)}>Open Toast</button>
       <Toast isOpen={isOpen} setIsOpen={setIsOpen} {...args} />
     </>
   );
 };
 
-export const Default = Template.bind({});
+export const Default = () => <Toast isOpen setIsOpen={() => {}} />;
 Default.args = {
   children: "Content",
 };
@@ -41,6 +41,16 @@ JSXChildren.args = {
       <p>We can put any arbitrary content here...</p>
       <button>Yes</button>
       <button>No</button>
+    </div>
+  ),
+};
+
+export const AutoDismiss = Template.bind({});
+AutoDismiss.args = {
+  timeout: 2,
+  children: (
+    <div>
+      <h3>Hi, This toast message will disappear in 2 seconds...</h3>
     </div>
   ),
 };
