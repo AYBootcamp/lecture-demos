@@ -76,7 +76,10 @@ const Dropdown = ({ searchable, options, onSelect }) => {
 
   return (
     <DropdownContainer>
-      <DropdownHeader onClick={() => setIsOpen(!isOpen)}>
+      <DropdownHeader
+        data-testid={`test_id_dropdown_header`}
+        onClick={() => setIsOpen(!isOpen)}
+      >
         {selectedOption ? selectedOption.label : "Select an option"}
         <FontAwesomeIcon
           icon={`fa-solid fa-chevron-${isOpen ? "up" : "down"}`}
@@ -96,6 +99,7 @@ const Dropdown = ({ searchable, options, onSelect }) => {
           </DropdownOption>
           {filteredOption.map((option) => (
             <DropdownOption
+              data-testid={`test_id_${option.label.toLowerCase()}`}
               key={option.value}
               selected={option === selectedOption}
               onClick={() => handleOptionClick(option)}
