@@ -47,6 +47,7 @@ export const PATH = {
     customHookPage: 'customHookPage',
     reactRouterPage: 'reactRouterPage',
     stateManagementDemoPage: 'stateManagementDemoPage',
+    muiDemoPage: 'muiDemoPage',
 }
 
 const links = [
@@ -69,6 +70,7 @@ const links = [
     { to: PATH.customHookPage, title: 'Custom Hook Page' },
     { to: PATH.reactRouterPage, title: 'React Router Page' },
     { to: PATH.stateManagementDemoPage, title: 'State Management Demo Page' },
+    { to: PATH.muiDemoPage, title: 'MUI Demo Page' },
 ]
 
 /**

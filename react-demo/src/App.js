@@ -8,6 +8,7 @@ import {
     JsxDemoPage,
     LandingPage,
     LifecycleDemoPage,
+    MUIDemoPage,
     ProjectSubmissions,
     ReactRouterDemoPage,
     StateDemoPage,
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
             {
                 path: PATH.stateManagementDemoPage,
                 element: <StateManagementDemoPage />,
+            },
+            {
+                path: PATH.muiDemoPage,
+                element: <MUIDemoPage />,
             },
         ],
         // RouterDemo #5: Error page

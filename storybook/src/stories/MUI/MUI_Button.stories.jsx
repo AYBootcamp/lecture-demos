@@ -9,7 +9,7 @@ import React from "react";
 import styled from "styled-components";
 
 export default {
-  title: "MUIComponents/Button",
+  title: "MUI_Components/Button",
   component: Button,
   argTypes: {
     onClick: {
@@ -18,7 +18,6 @@ export default {
   },
 };
 
-// Controlled Element
 const Template = (args) => {
   return <Button {...args}>A MUI Button!</Button>;
 };
