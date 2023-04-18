@@ -10,6 +10,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.3.0",
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.11.10",
     "@mui/styled-engine-sc": "^5.11.9",
     "react": "^18.2.0",
@@ -19,7 +20,8 @@
   },
   "scripts": {
     "start": "start-storybook -p 6006 -s public",
-    "build": "build-storybook -s public"
+    "build": "build-storybook -s public",
+    "deploy": "aws s3 sync public/ s3://spa-alex-storybook"
   },
   "eslintConfig": {
     "extends": [
