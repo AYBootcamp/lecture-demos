@@ -5,6 +5,7 @@ import Nav, { PATH } from './components/Nav'
 import {
     CustomHookPage,
     ErrorPage,
+    JestDemoPage,
     JsxDemoPage,
     LandingPage,
     LifecycleDemoPage,
@@ -72,6 +73,7 @@ const router = createBrowserRouter([
                 path: PATH.muiDemoPage,
                 element: <MUIDemoPage />,
             },
+            { path: PATH.jestDemoPage, element: <JestDemoPage /> },
         ],
         // RouterDemo #5: Error page
         errorElement: <ErrorPage />,

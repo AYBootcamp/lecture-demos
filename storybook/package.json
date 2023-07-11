@@ -21,7 +21,7 @@
   "scripts": {
     "start": "start-storybook -p 6006 -s public",
     "build": "build-storybook -s public",
-    "deploy": "aws s3 sync public/ s3://spa-alex-storybook"
+    "deploy": "aws s3 sync storybook-static/ s3://spa-alex-storybook"
   },
   "eslintConfig": {
     "extends": [
