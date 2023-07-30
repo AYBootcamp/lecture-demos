@@ -13,7 +13,7 @@ const Fibonacci = () => {
         <div>
             <h2>Fibonacci Numbers</h2>
             <label>Fib</label>
-            <div>
+            <div data-testid="results">
                 {numbers.map((number, index) => (
                     <span key={index} style={{ padding: '5px' }}>
                         {number}
@@ -31,6 +31,7 @@ const Fibonacci = () => {
             <label>Index</label>
             <div>
                 <button
+                    data-testid="get-fib-btn"
                     onClick={() => {
                         const newNums = [...numbers]
                         newNums.push(getFibNumber())

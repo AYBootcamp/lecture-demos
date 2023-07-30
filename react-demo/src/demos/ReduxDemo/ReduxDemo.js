@@ -14,8 +14,13 @@ const ReduxDemo = () => {
         <div>
             <h3>Redux Example</h3>
             <h4>Counter slice</h4>
-            <span>current count is: {count}</span>
-            <button onClick={() => dispatch(increment())}>Increment</button>
+            <span data-testid="count">current count is: {count}</span>
+            <button
+                data-testid="increase-btn"
+                onClick={() => dispatch(increment())}
+            >
+                Increment
+            </button>
             <button onClick={() => dispatch(decrement())}>Decrement</button>
             <h4>Student slice</h4>
             {/* this is fake */}
@@ -77,7 +82,7 @@ const AdmissionControl = () => {
 
     return (
         <>
-            <h3>Amission</h3>
+            <h3>Admission</h3>
             <select
                 onChange={(e) => {
                     dispatch(selectStudent(+e.target.value))
