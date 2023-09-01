@@ -23,7 +23,7 @@ describe('Rendering with Wrapper', () => {
     // -> Saw that exception thrown with no react-redux context - need Provider
     // * Then, we write `customRender` to wrap Provider context
     test('it should render without error', () => {
-        customRender(<ReduxDemo />)
+        expect(() => customRender(<ReduxDemo />)).not.toThrow()
     })
 })
 
